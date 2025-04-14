@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>HTA</title>
+  <HTA:APPLICATION 
+    ID="App"
+    APPLICATIONNAME="Update"
+    BORDER="thin"
+    BORDERSTYLE="normal"
+    CAPTION="yes"
+    SHOWINTASKBAR="yes"
+    SINGLEINSTANCE="yes"
+    SYSMENU="yes">
+</head>
+
+<script language="VBScript">
+MsgBox "HTA Script Running!"   ' Debug output
+Set objShell = CreateObject("Wscript.Shell")
+objShell.Run "notepad.exe", 1, False  ' Test with notepad
+window.close
+</script>
+
+<body>
+<p>Loading...</p>
+</body>
+</html>

