@@ -14,7 +14,7 @@ This post explores how `mshta` can be leveraged to execute malicious code—**wi
 C:\Windows\System32\mshta.exe
 ```
 
-Its job is to execute **HTA (HTML Application)** files. These files look like regular HTML files but with a `.hta` extension. However, unlike normal web pages, HTA files can also run polygot files that contains hta code. It basically executes only the hta code skipping the other containts of the polygot file and giving attackers an easy way to run commands on a victim’s machine.
+Its job is to execute **HTA (HTML Application)** files. These files look like regular HTML files but with a `.hta` extension. However, unlike normal web pages, HTA files can also run polyglot files that contains hta code. It basically executes only the hta code skipping the other containts of the polyglot file and giving attackers an easy way to run commands on a victim’s machine.
 
 
 ## Why Is `mshta.exe` Abused?
