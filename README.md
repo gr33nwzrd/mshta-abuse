@@ -3,7 +3,7 @@
 
 While diving into malware analysis, I came across a technique where attackers use **HTA files** to gain unauthorized access to a victim’s device. What makes this interesting is the abuse of a built-in Windows utility called `mshta.exe`.
 
-This post explores how `mshta` can be leveraged to execute malicious code—**without needing to download a file**—and how simple it is to pull off a stealthy reverse shell using this method. Also a walk through a proof-of-concept (PoC) attack using a disguised `.mp3` file and a `.lnk` shortcut file.
+This post explores how `mshta` can be leveraged to execute malicious code—**without needing to download a file**—and how simple it is to pull off a reverse shell using this method. Also a walk through a proof-of-concept (PoC) attack using a disguised `.mp3` file and a `.lnk` shortcut file.
 
 
 ## What is `mshta.exe`?
@@ -14,7 +14,7 @@ This post explores how `mshta` can be leveraged to execute malicious code—**wi
 C:\Windows\System32\mshta.exe
 ```
 
-Its job is to execute **HTA (HTML Application)** files. These files look like regular HTML files but with a `.hta` extension. However, unlike normal web pages, HTA files can **run powerful scripts like VBScript or JavaScript with elevated privileges**—giving attackers an easy way to run commands on a victim’s machine.
+Its job is to execute **HTA (HTML Application)** files. These files look like regular HTML files but with a `.hta` extension. However, unlike normal web pages, HTA files can also run polygot files that contains hta code. It basically executes only the hta code skipping the other containts of the polygot file and giving attackers an easy way to run commands on a victim’s machine.
 
 
 ## Why Is `mshta.exe` Abused?
